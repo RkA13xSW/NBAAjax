@@ -30,20 +30,23 @@ async function mostrarDatosEquipo(){
             mostrarDatosGenerales(data);
 
             try {
-                const response = await fetch(`${NBAAPIPLAYERS}`)
-                const jugadores = await response.json();
                 let contador = 0;
-                    for (let i = 0; i < jugadores.data.length; i++) {
-                        if(jugadores.data[i].team.id == data.id){
-                            agregarJugadores(jugadores.data[i]);
-                            contador++;
-                        }   
-                    }
-                    if(contador > 1){
-                        document.querySelector(".jugadores-datos").classList.remove("noVer");
-                    }else{
-                        document.querySelector(".jugadores-datos").classList.add("noVer");
-                    }
+                const response = await fetch(`${NBAAPIPLAYERS}?team=${data.name}`)
+                    const datosJugadores = await response.json();
+
+                    for (let i = 0; i < datosJugadores.data.length; i++) {
+                        agregarJugadores(datosJugadores.data[i]);
+                        contador++;
+                    }    
+
+                if(contador > 1){
+                    document.querySelector(".jugadores-datos").classList.remove("noVer");
+                }else{
+                    document.querySelector(".jugadores-datos").classList.add("noVer");
+                }
+                
+                    
+                    
 
         
             } catch (error) {
