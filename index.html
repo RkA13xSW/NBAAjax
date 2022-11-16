@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="/IMGS/nba.png" type="image/x-png">
+    <title>NBA API</title>
+</head>
+<body onload="mostrarOpciones()">
+    <div class="barra-opciones">
+        <select name="equipos" id="equipos">
+            <option value="None" selected>Ninguno</option>
+        </select>
+        <button onclick="mostrarDatosEquipo()">Mostrar</button>
+    </div>
+    <div class="datos-recuperados noVer">
+        <h2>Datos de <strong id="datos-NombreEquipo">Chicago</strong>:</h2>
+        <div id="datos-recuperados">
+            <div class="datos-generales">
+                <h4>DATOS GENERALES</h4>
+                <div class="campo">
+                    <p>Nombre completo:</p><span id="REC-NombreFull"></span>
+                </div>
+                <div class="campo">
+                    <p>Nombre: </p><span id="REC-Nombre"></span>
+                </div>
+                <div class="campo">
+                    <p>Abreviación: </p><span id="REC-Abreviacion"></span>
+                </div>
+                <div class="campo">
+                    <p>Ciudad: </p><span id="REC-Ciudad"></span>
+                </div>
+                <div class="campo">
+                    <p>Conferencia: </p><span id="REC-Conferencia"></span>
+                </div>
+                <div class="campo">
+                    <p>Division: </p><span id="REC-Division"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
