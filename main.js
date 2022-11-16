@@ -32,8 +32,14 @@ async function mostrarDatosEquipo(){
             try {
                 let contador = 0;
                 const response = await fetch(`${NBAAPIPLAYERS}?team=${data.name}`)
-                    const datosJugadores = await response.json();
-
+                const datosJugadores = await response.json();
+                document.querySelector("#tabla-jugadores").innerHTML = `
+                <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Posición</th>
+                    </tr>
+                `;
                     for (let i = 0; i < datosJugadores.data.length; i++) {
                         agregarJugadores(datosJugadores.data[i]);
                         contador++;
